@@ -1,1 +1,23 @@
-<p>calculo-utilidad works!</p>
+<div class="utilidad-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Calcular Utilidad</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="calcularUtilidad()">
+          <mat-form-field>
+            <mat-label>Salario Mensual</mat-label>
+            <input matInput [(ngModel)]="salario" name="salario" type="number" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Años de Trabajo</mat-label>
+            <input matInput [(ngModel)]="anios" name="anios" type="number" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Calcular</button>
+        </form>
+        <div *ngIf="utilidad !== null" class="resultado">
+          <p>La utilidad es: {{ utilidad | currency }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
