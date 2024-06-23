@@ -1,1 +1,19 @@
-<p>calculo-matricula works!</p>
+<div class="matricula-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Calcular Matrícula</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="calcularMatricula()">
+          <mat-form-field>
+            <mat-label>Número de Materias</mat-label>
+            <input matInput [(ngModel)]="numMaterias" name="numMaterias" type="number" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Calcular</button>
+        </form>
+        <div *ngIf="total !== null" class="resultado">
+          <p>El total de la matrícula es: {{ total | currency:'PEN' }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
